@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke" verbose="10" parallel="tests">
+	<!-- <parameter name="selenium.host" value="127.0.0.1" /> <parameter name="selenium.port" 
+		value="4444" /> -->
+
+	<!-- Execution Data -->
+
+	<parameter name="ExecutionByXML" value="true" />
+	<parameter name="Browser" value="chrome" />
+	<parameter name="URL" value="https://agents.nirvanatech.com/applications/list" />
+
+	<!-- Report listener -->
+	<listeners>
+		<listener class-name="com.Nirvana.Utility.CustomDetailReporter" />
+		<listener
+			class-name="com.Nirvana.Utility.CustomReporterBuildSummary" />
+		<listener class-name="com.Nirvana.Utility.CustomReporter" />
+	</listeners>
+
+	<test name="Login_Do Login">
+		<classes>
+			<class name="com.Nirvana.Login.LoginIndex">
+				<methods>
+					<include name="login">
+						<parameter name="LoginEmail" value="maurya.patel@kiwiqa.com" />
+						<parameter name="Password" value="maurya" />
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="ApplicationsList_Create New Application">
+		<classes>
+			<class name="com.Nirvana.ApplicationsList.ApplicationsListIndex">
+				<methods>
+					<include name="createApplication">
+						<parameter name="DOTNumber" value="505638" />
+						<parameter name="Eligibility" value="No" />
+						<parameter name="ApplicationID" value="" />
+						<parameter name="CoverageRequested" value="Auto Liability" />
+						<parameter name="Producer" value="Jigish Trivedi" />
+						<parameter name="Miles_0_50" value="50" />
+						<parameter name="Miles_51_200" value="50" />
+						<parameter name="Miles_201_500" value="" />
+						<parameter name="Miles501" value="" />
+						<parameter name="UploadedFile" value="Equipment &amp; Driver List.xlsx" />
+						<parameter name="SheetName" value="UnitRenewals" />
+						<parameter name="Operations" value="Dry Van;Refrigerated" /> <!-- Use ";" as a separator -->
+						<parameter name="DryVan" value="50" />
+						<parameter name="Refrigerated" value="50" />
+						<parameter name="Flatbed" value="" />
+						<parameter name="Intermodal" value="" />
+						<parameter name="Tanker" value="" />
+						<parameter name="Hazmat" value="" />
+						<parameter name="HeavyHaul" value="" />
+						<parameter name="Dump" value="" />
+						<parameter name="PrimaryCommodity" value="Mail USPS" />
+						<parameter name="PowerUnits1" value="1" />
+						<parameter name="LossIncurred1" value="1042" />
+						<parameter name="Claims1" value="1" />
+						<parameter name="PowerUnits2" value="1" />
+						<parameter name="LossIncurred2" value="3042" />
+						<parameter name="Claims2" value="1" />
+						<parameter name="PowerUnits3" value="1" />
+						<parameter name="LossIncurred3" value="1042" />
+						<parameter name="Claims3" value="1" />
+						<parameter name="PowerUnits4" value="1" />
+						<parameter name="LossIncurred4" value="1042" />
+						<parameter name="Claims4" value="1" />
+						<parameter name="AutoLiability" value="$2,500" />
+						<parameter name="Plans" value="Basic" />
+						<parameter name="PhysicalDamage" value="$5,000"/>
+						<parameter name="InsuredsFullName" value="John Doe"/>
+						<parameter name="InsuredsEmail" value="alt.e1-1r0yrvk@yopmail.com"/>
+						<parameter name="OwnerOperatorsUnits" value="1"/>
+						<parameter name="HazardousMaterials" value="true"/>
+						<parameter name="LiftGateService_WhiteGloveDelivery" value="true"/>
+						<parameter name="ResidentialDelivery" value=""/>
+						<parameter name="Double_TripleTrailers" value=""/>
+						<parameter name="MeatOnHook" value=""/>
+						<parameter name="LargeLosses" value="Demo Description"/>
+						<parameter name="AdditionalInformation" value="Demo Description"/>
+						<parameter name="UploadedFileLossRun" value="Great West NET &amp; Progressive Loss Runs.pdf"/>
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Login_Do Logout">
+		<classes>
+			<class name="com.Nirvana.Login.LoginIndex">
+				<methods>
+					<include name="logout">
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
