@@ -92,7 +92,7 @@ public class SeleniumInit{
 		 }catch(Exception e)
 		 {}
 		 TestData.clearProperties("uploadConfig.properties");
-		 TestData.setValueConfig("uploadConfig.properties","downloadZip", "");  
+//		 TestData.setValueConfig("uploadConfig.properties","downloadZip", "");  
 		
 		if(execution.equalsIgnoreCase("true"))
 		{

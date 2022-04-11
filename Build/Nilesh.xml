@@ -30,17 +30,6 @@
 		</classes>
 	</test>
 	
-	<test name="ApplicationsList_Create New Application">
-		<classes>
-			<class name="com.Nirvana.ApplicationsList.ApplicationsListIndex">
-				<methods>
-					<include name="createApplication">
-					</include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
 	<test name="Login_Do Logout">
 		<classes>
 			<class name="com.Nirvana.Login.LoginIndex">

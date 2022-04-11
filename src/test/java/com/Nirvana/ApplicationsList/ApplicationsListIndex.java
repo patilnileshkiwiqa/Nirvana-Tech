@@ -22,7 +22,8 @@ public class ApplicationsListIndex extends SeleniumInit{
 		int numOfFailure=0;
 		int step=1;
 		
-		//For Data Driven
+		//For Data Driven From Excel
+		
 		File fMain = new File("UploadData/NewApp.xlsx");
 		String NewAppCreateExcel = fMain.getAbsolutePath();
 		System.out.println("Absolute  path NewAppCreateExcel: "

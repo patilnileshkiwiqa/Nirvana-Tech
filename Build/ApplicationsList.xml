@@ -36,6 +36,17 @@
 			<class name="com.Nirvana.ApplicationsList.ApplicationsListIndex">
 				<methods>
 					<include name="createApplication">
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<!-- <test name="ApplicationsList_Create New Application">
+		<classes>
+			<class name="com.Nirvana.ApplicationsList.ApplicationsListIndex">
+				<methods>
+					<include name="createApplication">
 						<parameter name="DOTNumber" value="505638" />
 						<parameter name="Eligibility" value="No" />
 						<parameter name="ApplicationID" value="" />
@@ -47,7 +58,7 @@
 						<parameter name="Miles501" value="" />
 						<parameter name="UploadedFile" value="Equipment &amp; Driver List.xlsx" />
 						<parameter name="SheetName" value="UnitRenewals" />
-						<parameter name="Operations" value="Dry Van;Refrigerated" /> <!-- Use ";" as a separator -->
+						<parameter name="Operations" value="Dry Van;Refrigerated" /> Use ";" as a separator
 						<parameter name="DryVan" value="50" />
 						<parameter name="Refrigerated" value="50" />
 						<parameter name="Flatbed" value="" />
@@ -87,7 +98,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="Login_Do Logout">
 		<classes>
