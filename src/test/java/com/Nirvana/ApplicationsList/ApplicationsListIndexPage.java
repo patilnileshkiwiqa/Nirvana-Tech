@@ -5,12 +5,19 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Nirvana.Init.AbstractPage;
 import com.Nirvana.Init.Common;
@@ -79,11 +86,23 @@ public class ApplicationsListIndexPage extends AbstractPage{
 
 	@FindBy(xpath="//input[@placeholder='Search...']")
 	WebElement searchBar;
+		
 	
 	public ApplicationsListVerification searchBar(String value) {
-		Common.pause(10);
+		Common.pause(5);
 		Common.refresh(driver);
-		Common.pause(60);
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
+				.withTimeout(100, TimeUnit.SECONDS) 			
+				.pollingEvery(2, TimeUnit.SECONDS) 			
+				.ignoring(NoSuchElementException.class);
+		WebElement tableElementPresent = wait.until(new Function<WebDriver, WebElement>(){
+		
+			public WebElement apply(WebDriver driver ) {
+				return driver.findElement(By.xpath("//tbody//tr[1]"));
+			}
+		});
+		tableElementPresent.click();
+		
 		searchBar.sendKeys(value);
 		Common.pause(1);
 		return new ApplicationsListVerification(driver);

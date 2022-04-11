@@ -32,7 +32,7 @@ public class DEmo {
 		System.out.println("Absolute  path: "
 				+ absolute);
 		
-		
+		ArrayList<String> RowNumberE = DEmo.getColumnData(absolute, "NewApp", "RowNumber");
 		ArrayList<String> DOTNumberE = DEmo.getColumnData(absolute, "NewApp", "DOTNumber");
 		ArrayList<String> EligibilityE = DEmo.getColumnData(absolute, "NewApp", "Eligibility");
 		ArrayList<String> CoverageRequestedE = DEmo.getColumnData(absolute, "NewApp", "CoverageRequested");
@@ -79,58 +79,60 @@ public class DEmo {
 		ArrayList<String> AdditionalInformationE = DEmo.getColumnData(absolute, "NewApp", "AdditionalInformation");
 		ArrayList<String> UploadedFileLossRunE = DEmo.getColumnData(absolute, "NewApp", "UploadedFileLossRun");
 
+		String rownum = RowNumberE.get(0);
+		int RowNumber = Integer.parseInt(rownum);
 		
-		String DOTNumber = DOTNumberE.get(0);
-		String Eligibility = EligibilityE.get(0);
-		String CoverageRequested = CoverageRequestedE.get(0);
-		String Producer = ProducerE.get(0);
-		String Miles_0_50 = Miles_0_50E.get(0);
-		String Miles_51_200 = Miles_51_200E.get(0);
-		String Miles_201_500 = Miles_201_500E.get(0);
-		String Miles501 = Miles501E.get(0);
-		String UploadedFile = UploadedFileE.get(0);
-		String Operations = OperationsE.get(0);
-		String DryVan = DryVanE.get(0);
-		String Refrigerated = RefrigeratedE.get(0); 
-		String Flatbed = FlatbedE.get(0); 
-		String Intermodal = IntermodalE.get(0); 
-		String Tanker = TankerE.get(0); 
-		String Hazmat = HazmatE.get(0);
-		String HeavyHaul = HeavyHaulE.get(0); 
-		String Dump = DumpE.get(0);
-		String PrimaryCommodity = PrimaryCommodityE.get(0); 
-		String PowerUnits1  = PowerUnits1E.get(0);
-		String LossIncurred1 = LossIncurred1E.get(0); 
-		String Claims1  = Claims1E.get(0);
-		String PowerUnits2  = PowerUnits2E.get(0);
-		String LossIncurred2  = LossIncurred2E.get(0);
-		String Claims2  = Claims2E.get(0);
-		String PowerUnits3  = PowerUnits3E.get(0);
-		String LossIncurred3  = LossIncurred3E.get(0);
-		String Claims3  = Claims3E.get(0);
-		String PowerUnits4 = PowerUnits4E.get(0);
-		String LossIncurred4  = LossIncurred4E.get(0);
-		String Claims4  = Claims4E.get(0);
-		String AutoLiability  = AutoLiabilityE.get(0);
-		String Plans = PlansE.get(0);
-		String PhysicalDamage = PhysicalDamageE.get(0);
-		String InsuredsFullName = InsuredsFullNameE.get(0);
-		String InsuredsEmail = InsuredsEmailE.get(0);
-		String OwnerOperatorsUnits = OwnerOperatorsUnitsE.get(0);
-		String HazardousMaterials = HazardousMaterialsE.get(0);
-		String LiftGateService_WhiteGloveDelivery = LiftGateService_WhiteGloveDeliveryE.get(0);
-		String ResidentialDelivery = ResidentialDeliveryE.get(0);
-		String Double_TripleTrailers = Double_TripleTrailersE.get(0);
-		String MeatOnHook = MeatOnHookE.get(0);
-		String LargeLosses = LargeLossesE.get(0);
-		String AdditionalInformation = AdditionalInformationE.get(0);
-		String UploadedFileLossRun = UploadedFileLossRunE.get(0);
+		String DOTNumber = DOTNumberE.get(RowNumber);
+		String Eligibility = EligibilityE.get(RowNumber);
+		String CoverageRequested = CoverageRequestedE.get(RowNumber);
+		String Producer = ProducerE.get(RowNumber);
+		String Miles_0_50 = Miles_0_50E.get(RowNumber);
+		String Miles_51_200 = Miles_51_200E.get(RowNumber);
+		String Miles_201_500 = Miles_201_500E.get(RowNumber);
+		String Miles501 = Miles501E.get(RowNumber);
+		String UploadedFile = UploadedFileE.get(RowNumber);
+		String Operations = OperationsE.get(RowNumber);
+		String DryVan = DryVanE.get(RowNumber);
+		String Refrigerated = RefrigeratedE.get(RowNumber); 
+		String Flatbed = FlatbedE.get(RowNumber); 
+		String Intermodal = IntermodalE.get(RowNumber); 
+		String Tanker = TankerE.get(RowNumber); 
+		String Hazmat = HazmatE.get(RowNumber);
+		String HeavyHaul = HeavyHaulE.get(RowNumber); 
+		String Dump = DumpE.get(RowNumber);
+		String PrimaryCommodity = PrimaryCommodityE.get(RowNumber); 
+		String PowerUnits1  = PowerUnits1E.get(RowNumber);
+		String LossIncurred1 = LossIncurred1E.get(RowNumber); 
+		String Claims1  = Claims1E.get(RowNumber);
+		String PowerUnits2  = PowerUnits2E.get(RowNumber);
+		String LossIncurred2  = LossIncurred2E.get(RowNumber);
+		String Claims2  = Claims2E.get(RowNumber);
+		String PowerUnits3  = PowerUnits3E.get(RowNumber);
+		String LossIncurred3  = LossIncurred3E.get(RowNumber);
+		String Claims3  = Claims3E.get(RowNumber);
+		String PowerUnits4 = PowerUnits4E.get(RowNumber);
+		String LossIncurred4  = LossIncurred4E.get(RowNumber);
+		String Claims4  = Claims4E.get(RowNumber);
+		String AutoLiability  = AutoLiabilityE.get(RowNumber);
+		String Plans = PlansE.get(RowNumber);
+		String PhysicalDamage = PhysicalDamageE.get(RowNumber);
+		String InsuredsFullName = InsuredsFullNameE.get(RowNumber);
+		String InsuredsEmail = InsuredsEmailE.get(RowNumber);
+		String OwnerOperatorsUnits = OwnerOperatorsUnitsE.get(RowNumber);
+		String HazardousMaterials = HazardousMaterialsE.get(RowNumber);
+		String LiftGateService_WhiteGloveDelivery = LiftGateService_WhiteGloveDeliveryE.get(RowNumber);
+		String ResidentialDelivery = ResidentialDeliveryE.get(RowNumber);
+		String Double_TripleTrailers = Double_TripleTrailersE.get(RowNumber);
+		String MeatOnHook = MeatOnHookE.get(RowNumber);
+		String LargeLosses = LargeLossesE.get(RowNumber);
+		String AdditionalInformation = AdditionalInformationE.get(RowNumber);
+		String UploadedFileLossRun = UploadedFileLossRunE.get(RowNumber);
 			
 		
 		
 				
 		
-		System.out.println(	PhysicalDamage	);
+		System.out.println(	AutoLiability	);
 		
 		
 
