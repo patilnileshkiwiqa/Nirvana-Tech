@@ -21,6 +21,9 @@ public class ClaimsIndex extends SeleniumInit{
 		int numOfFailure=0;
 		int step=1;
 
+
+		System.out.println("Claims Thread ID: "+Thread.currentThread().getId());
+		
 		logStep(step++,"Open URL : "+testUrl);	
 		
 		logStep(step++,"Click on claims tab");

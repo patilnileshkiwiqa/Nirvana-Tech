@@ -26,6 +26,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.Nirvana.ApplicationsList.ApplicationsListIndexPage;
 import com.Nirvana.ApplicationsList.ApplicationsListVerification;
@@ -80,12 +81,12 @@ public class SeleniumInit{
     protected ClaimsIndexPage claimsIndexPage;
     protected ClaimsVerification claimsVerification;
    
+    @Parameters({ "browser", "url" })
 	@SuppressWarnings("deprecation")
 	@BeforeSuite(alwaysRun = true)
-	public void fetchSuite(ITestContext testContext) throws IOException
+	public void fetchSuite(String browser, String url, ITestContext testContext) throws IOException
 	{
 		
-		 String execution=testContext.getCurrentXmlTest().getParameter("ExecutionByXML");
 		 try
 		 {
 			 TestData.deletePastScreenshots(System.getProperty("user.dir") +"\\test-output\\screenshots");
@@ -94,17 +95,23 @@ public class SeleniumInit{
 		 TestData.clearProperties("uploadConfig.properties");
 //		 TestData.setValueConfig("uploadConfig.properties","downloadZip", "");  
 		
-		if(execution.equalsIgnoreCase("true"))
+		 String execution=testContext.getCurrentXmlTest().getParameter("ExecutionByXML");
+
+		 if(execution.equalsIgnoreCase("true"))
 		{
 			testUrl=testContext.getCurrentXmlTest().getParameter("URL");
 			targetBrowser =testContext.getCurrentXmlTest().getParameter("Browser");
-		}else
-		{
-			testUrl=TestData.getValueFromConfig("config.properties","URL");
-			targetBrowser =TestData.getValueFromConfig("config.properties","Browser");
+		}else {
+			browserName=browser;
 		}
+//		 else 
+//		{
+//			testUrl=TestData.getValueFromConfig("config.properties","URL");
+//			targetBrowser =TestData.getValueFromConfig("config.properties","Browser");
+//		}
 		
 		browserName=targetBrowser;
+		
 		
 		//URL remote_grid = new URL("http://" + seleniumHub + ":" + seleniumHubPort + "/wd/hub");
 		String SCREENSHOT_FOLDER_NAME = "screenshots";
@@ -232,6 +239,8 @@ public class SeleniumInit{
 		//suiteName = testContext.getSuite().getName();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		
+		testUrl = url;
 		driver.get(testUrl);
 		
 		
@@ -310,6 +319,9 @@ public class SeleniumInit{
 		{
 		System.out.println(throwable);
 		}
+		
+		driver.manage().deleteAllCookies();
+		driver.close();
 	}
 	/**
 	 * Log given message to Reporter output.
@@ -320,8 +332,8 @@ public class SeleniumInit{
 	@AfterSuite(alwaysRun = true)
 	public void postConfigue()
 	{
-		driver.manage().deleteAllCookies();
-		driver.close();
+//		driver.manage().deleteAllCookies();
+//		driver.close();
 	}
 	public void log(String msg) 
 	{

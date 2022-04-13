@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke" verbose="5" parallel="methods" thread-count="2">
+<suite name="Smoke" verbose="1" parallel="false">
 	<!-- <parameter name="selenium.host" value="127.0.0.1" /> <parameter name="selenium.port" 
 		value="4444" /> -->
 
 	<!-- Execution Data -->
 
-	<parameter name="ExecutionByXML" value="true" />
+	<parameter name="ExecutionByXML" value="false" />
 	<parameter name="Browser" value="chrome" />
 	<parameter name="URL" value="https://agents.nirvanatech.com/applications/list" />
 
@@ -22,8 +22,6 @@
 			<class name="com.Nirvana.Login.LoginIndex">
 				<methods>
 					<include name="login">
-						<parameter name="LoginEmail" value="maurya.patel@kiwiqa.com" />
-						<parameter name="Password" value="mauya" />
 					</include>
 				</methods>
 			</class>
@@ -35,6 +33,7 @@
 			<class name="com.Nirvana.Claims.ClaimsIndex">
 				<methods>
 					<include name="claimsPage">
+						<parameter name="Browser" value="firefox" />
 					</include>
 				</methods>
 			</class>

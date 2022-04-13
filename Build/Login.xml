@@ -6,7 +6,7 @@
 
 	<!-- Execution Data -->
 
-	<parameter name="ExecutionByXML" value="true" />
+	<parameter name="ExecutionByXML" value="false" />
 	<parameter name="Browser" value="chrome" />
 	<parameter name="URL" value="https://agents.nirvanatech.com/applications/list" />
 

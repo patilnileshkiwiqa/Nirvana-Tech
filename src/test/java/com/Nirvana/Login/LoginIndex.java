@@ -15,14 +15,17 @@ public class LoginIndex extends SeleniumInit{
 
 
 
-	@Parameters({ "LoginEmail", "Password" })
 	@Test
-	public void login(String LoginEmail, String Password) throws IOException{
+	public void login() throws IOException{
 
 		int numOfFailure=0;
 		int step=1;
+		String LoginEmail;
+		String Password;
 
 		logStep(step++,"Open URL : "+testUrl);	
+		
+		System.out.println("Login Thread ID: "+Thread.currentThread().getId());
 		
 		
 
@@ -68,6 +71,9 @@ public class LoginIndex extends SeleniumInit{
 		int numOfFailure=0;
 		int step=1;
 		 
+
+		System.out.println("Logout Thread ID: "+Thread.currentThread().getId());
+		
 		logStep(step++,"Click on logout.");
 		loginVerification=loginIndexPage.logout();
 		
