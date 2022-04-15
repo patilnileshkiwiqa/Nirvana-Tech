@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
+
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -226,8 +229,13 @@ public class SeleniumInit{
 			capability.setJavascriptEnabled(true);
 			osName = capability.getPlatform().name();
 			browserVersion = capability.getVersion();
+
+
+			
 			//driver = new RemoteWebDriver(remote_grid, capability);
 			driver= new ChromeDriver(capability);
+			
+			
 		}else if (targetBrowser.contains("safari"))
 		{
 			capability = DesiredCapabilities.safari();
@@ -235,6 +243,11 @@ public class SeleniumInit{
 			capability.setBrowserName("safari");
 			driver = new SafariDriver(capability);
 		}
+		
+		
+		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+		String browserVersion = (String)cap.getVersion();
+		TestData.setValueConfig("ReportConfig/report-environment.properties","Version", browserVersion);
 		
 		//suiteName = testContext.getSuite().getName();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke" verbose="10" parallel="tests">
+<suite name="Smoke" verbose="1" parallel="false">
 	<!-- <parameter name="selenium.host" value="127.0.0.1" /> <parameter name="selenium.port" 
 		value="4444" /> -->
 
@@ -22,13 +22,34 @@
 			<class name="com.Nirvana.Login.LoginIndex">
 				<methods>
 					<include name="login">
-						<parameter name="LoginEmail" value="maurya.patel@kiwiqa.com" />
-						<parameter name="Password" value="mauya" />
 					</include>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	<test name="Claims_Claims Page Verification">
+		<classes>
+			<class name="com.Nirvana.Claims.ClaimsIndex">
+				<methods>
+					<include name="claimsPage">
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="ApplicationsList_Create New Application">
+		<classes>
+			<class name="com.Nirvana.ApplicationsList.ApplicationsListIndex">
+				<methods>
+					<include name="createApplication">
+					</include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
 	
 	<test name="Login_Do Logout">
 		<classes>
