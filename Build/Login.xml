@@ -23,8 +23,6 @@
 			<class name="com.Nirvana.Login.LoginIndex">
 				<methods>
 					<include name="login">
-						<parameter name="LoginEmail" value="" />
-						<parameter name="Password" value="" />
 					</include>
 				</methods>
 			</class>

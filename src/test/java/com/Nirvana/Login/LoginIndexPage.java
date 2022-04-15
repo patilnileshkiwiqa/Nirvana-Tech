@@ -35,6 +35,7 @@ public class LoginIndexPage extends AbstractPage{
 		Common.type(passwordtxt, password);
 		Common.clickableElement(loginBtn, driver);
 		Common.clickOn(driver, loginBtn);
+		Common.pause(5);
 		return new LoginVerification(driver);
 	}
 

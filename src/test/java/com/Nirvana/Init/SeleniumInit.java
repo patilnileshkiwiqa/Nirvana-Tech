@@ -101,6 +101,7 @@ public class SeleniumInit{
 		{
 			testUrl=testContext.getCurrentXmlTest().getParameter("URL");
 			targetBrowser =testContext.getCurrentXmlTest().getParameter("Browser");
+			browserName=targetBrowser;
 		}else {
 			browserName=browser;
 		}
@@ -110,8 +111,7 @@ public class SeleniumInit{
 //			targetBrowser =TestData.getValueFromConfig("config.properties","Browser");
 //		}
 		
-		browserName=targetBrowser;
-		
+		 targetBrowser=browserName;
 		
 		//URL remote_grid = new URL("http://" + seleniumHub + ":" + seleniumHubPort + "/wd/hub");
 		String SCREENSHOT_FOLDER_NAME = "screenshots";
@@ -320,8 +320,7 @@ public class SeleniumInit{
 		System.out.println(throwable);
 		}
 		
-		driver.manage().deleteAllCookies();
-		driver.close();
+		
 	}
 	/**
 	 * Log given message to Reporter output.
@@ -332,8 +331,8 @@ public class SeleniumInit{
 	@AfterSuite(alwaysRun = true)
 	public void postConfigue()
 	{
-//		driver.manage().deleteAllCookies();
-//		driver.close();
+		driver.manage().deleteAllCookies();
+		driver.close();
 	}
 	public void log(String msg) 
 	{

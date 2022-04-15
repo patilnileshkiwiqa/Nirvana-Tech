@@ -137,6 +137,13 @@
 			<artifactId>msedge-selenium-tools-java</artifactId>
 			<version>3.141.0</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.lowagie</groupId>
+		    <artifactId>itext</artifactId>
+		    <version>2.1.7</version>
+		</dependency>
+		
 
 	</dependencies>
 	<build>
@@ -176,15 +183,19 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.21.0</version>
 				<configuration>
-					<systemPropertyVariables>
-						<executionURL>${url}</executionURL>
-					</systemPropertyVariables>
+				
 					<systemPropertyVariables>
 						<executionBrowser>${browser}</executionBrowser>
 					</systemPropertyVariables>
+					
+					<systemPropertyVariables>
+						<executionURL>${url}</executionURL>
+					</systemPropertyVariables>
+					
 					<suiteXmlFiles>
 						<suiteXmlFile>Build/${suiteXmlFiles}</suiteXmlFile>
 					</suiteXmlFiles>
+				
 					<reportsDirectory>test-output</reportsDirectory>
 					<properties>
 						<property>
