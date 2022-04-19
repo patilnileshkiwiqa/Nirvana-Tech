@@ -229,11 +229,12 @@ public class SeleniumInit{
 			capability.setJavascriptEnabled(true);
 			osName = capability.getPlatform().name();
 			browserVersion = capability.getVersion();
+//			chromeOptions.addArguments("--headless");
 
 
 			
 			//driver = new RemoteWebDriver(remote_grid, capability);
-			driver= new ChromeDriver(capability);
+			driver= new ChromeDriver(chromeOptions);
 			
 			
 		}else if (targetBrowser.contains("safari"))

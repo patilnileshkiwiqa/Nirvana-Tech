@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -101,8 +102,7 @@ public class ApplicationsListIndexPage extends AbstractPage{
 				return driver.findElement(By.xpath("//tbody//tr[1]"));
 			}
 		});
-		tableElementPresent.click();
-		
+				
 		searchBar.sendKeys(value);
 		Common.pause(1);
 		return new ApplicationsListVerification(driver);
@@ -227,78 +227,102 @@ public class ApplicationsListIndexPage extends AbstractPage{
 
 	@FindBy(xpath="//button[contains(text(),'Upload data from file')]")
 	WebElement clickOnUploadDataBtnInEquipmentListTab;
-
-	public ApplicationsListVerification clickOnUploadDataBtnInEquipmentListTab(String absolutepath) throws AWTException {
-//		Common.jsClick(driver, clickOnUploadDataBtnInEquipmentListTab);
-		System.out.println("Absolute  path: "
-                + absolutepath);
-		int size = driver.findElements(By.tagName("iframe")).size();
-		System.out.println("Frames :"+size);
+	
+	public ApplicationsListVerification clickOnUploadDataBtnInEquipmentListTab(String absolutepath) throws IOException {
+		Common.pause(2);
 		
 		driver.switchTo().frame(1);
-		
-		Common.pause(2);
-		StringSelection s = new StringSelection(absolutepath);
-	      // Clipboard copy
-	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-	      //identify element and click
-	      driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
-	      // Robot object creation
-	      Common.pause(2);
-	      Robot r = new Robot();
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
-	      //pressing ctrl+v
-	      r.keyPress(KeyEvent.VK_CONTROL);
-	      r.keyPress(KeyEvent.VK_V);
-	      //releasing ctrl+v
-	      r.keyRelease(KeyEvent.VK_CONTROL);
-	      r.keyRelease(KeyEvent.VK_V);
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
+		driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
 		Common.pause(3);
-		return new ApplicationsListVerification(driver);
+		Runtime.getRuntime().exec("F:/Temp/Nirvana/src/test/java/com/Nirvana/Utility/AutoIt Script/UploadFile1.exe");
+		Common.pause(3);
+		
+		return new ApplicationsListVerification(driver);		
 	}
+
+//	public ApplicationsListVerification clickOnUploadDataBtnInEquipmentListTab(String absolutepath) throws AWTException {
+////		Common.jsClick(driver, clickOnUploadDataBtnInEquipmentListTab);
+//		System.out.println("Absolute  path: "
+//                + absolutepath);
+//		int size = driver.findElements(By.tagName("iframe")).size();
+//		System.out.println("Frames :"+size);
+//		
+//		driver.switchTo().frame(1);
+//		
+//		Common.pause(2);
+//		StringSelection s = new StringSelection(absolutepath);
+//	      // Clipboard copy
+//	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
+//	      //identify element and click
+//	      driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
+//	      // Robot object creation
+//	      Common.pause(2);
+//	      Robot r = new Robot();
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//	      //pressing ctrl+v
+//	      r.keyPress(KeyEvent.VK_CONTROL);
+//	      r.keyPress(KeyEvent.VK_V);
+//	      //releasing ctrl+v
+//	      r.keyRelease(KeyEvent.VK_CONTROL);
+//	      r.keyRelease(KeyEvent.VK_V);
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//		Common.pause(3);
+//		return new ApplicationsListVerification(driver);
+//	}
 	
-	public ApplicationsListVerification clickOnUploadDataBtnInDriverListTab(String absolutepath) throws AWTException {
-//		Common.jsClick(driver, clickOnUploadDataBtnInEquipmentListTab);
-		System.out.println("Absolute  path: "
-                + absolutepath);
-		int size = driver.findElements(By.tagName("iframe")).size();
-		System.out.println("Frames :"+size);
-		
+	
+	
+	public ApplicationsListVerification clickOnUploadDataBtnInDriverListTab(String absolutepath) throws IOException 
+	{
 		driver.switchTo().frame(2);
-		
-		Common.pause(2);
-		StringSelection s = new StringSelection(absolutepath);
-	      // Clipboard copy
-	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-	      //identify element and click
-	      driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
-	      // Robot object creation
-	      Common.pause(2);
-	      Robot r = new Robot();
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
-	      //pressing ctrl+v
-	      r.keyPress(KeyEvent.VK_CONTROL);
-	      r.keyPress(KeyEvent.VK_V);
-	      //releasing ctrl+v
-	      r.keyRelease(KeyEvent.VK_CONTROL);
-	      r.keyRelease(KeyEvent.VK_V);
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
+		driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
 		Common.pause(3);
-		return new ApplicationsListVerification(driver);
+		Runtime.getRuntime().exec("F:/Temp/Nirvana/src/test/java/com/Nirvana/Utility/AutoIt Script/UploadFile1.exe");
+		Common.pause(3);
+		
+		return new ApplicationsListVerification(driver);	
 	}
+//	public ApplicationsListVerification clickOnUploadDataBtnInDriverListTab(String absolutepath) throws AWTException {
+////		Common.jsClick(driver, clickOnUploadDataBtnInEquipmentListTab);
+//		System.out.println("Absolute  path: "
+//                + absolutepath);
+//		int size = driver.findElements(By.tagName("iframe")).size();
+//		System.out.println("Frames :"+size);
+//		
+//		driver.switchTo().frame(2);
+//		
+//		Common.pause(2);
+//		StringSelection s = new StringSelection(absolutepath);
+//	      // Clipboard copy
+//	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
+//	      //identify element and click
+//	      driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
+//	      // Robot object creation
+//	      Common.pause(2);
+//	      Robot r = new Robot();
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//	      //pressing ctrl+v
+//	      r.keyPress(KeyEvent.VK_CONTROL);
+//	      r.keyPress(KeyEvent.VK_V);
+//	      //releasing ctrl+v
+//	      r.keyRelease(KeyEvent.VK_CONTROL);
+//	      r.keyRelease(KeyEvent.VK_V);
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//		Common.pause(3);
+//		return new ApplicationsListVerification(driver);
+//	}
 
 	@FindBy(xpath="//button[text()='Continue']")
 	WebElement clickOnContinueBtnInEquipmentListTab;
@@ -320,11 +344,13 @@ public class ApplicationsListIndexPage extends AbstractPage{
 		Common.pause(2);
 //		clickOnDropDownSheets.sendKeys(Keys.ARROW_DOWN);
 //		clickOnDropDownSheets.sendKeys(Keys.ENTER);
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		driver.findElement(By.xpath("//*/text()[normalize-space(.)='DriverRenewals']/parent::*")).click();
+//		Robot robot = new Robot();
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
 		
 		Common.clickableElement(clickOnContinueBtnInEquipmentListTab, driver);
 		Common.clickOn(driver, clickOnContinueBtnInEquipmentListTab);
@@ -761,44 +787,51 @@ public class ApplicationsListIndexPage extends AbstractPage{
 		return new ApplicationsListVerification(driver);
 	}
 	
-	public ApplicationsListVerification clickOnUploadDataBtnInLossRun(String absolutepath) throws AWTException {
-//		Common.jsClick(driver, clickOnUploadDataBtnInEquipmentListTab);
-//		System.out.println("Absolute  path: "
-//                + absolutepath);
-//		int size = driver.findElements(By.tagName("iframe")).size();
-//		System.out.println("Frames :"+size);
-//		
-//		driver.switchTo().frame(1);
-		
-		Common.pause(2);
-		StringSelection s = new StringSelection(absolutepath);
-	      // Clipboard copy
-	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-	      //identify element and click
-	      driver.findElement(By.xpath("//span[text()='Browse']")).click();
-	      // Robot object creation
-	      Common.pause(2);
-	      Robot r = new Robot();
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
-	      //pressing ctrl+v
-	      r.keyPress(KeyEvent.VK_CONTROL);
-	      r.keyPress(KeyEvent.VK_V);
-	      //releasing ctrl+v
-	      r.keyRelease(KeyEvent.VK_CONTROL);
-	      r.keyRelease(KeyEvent.VK_V);
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
+
+	public ApplicationsListVerification clickOnUploadDataBtnInLossRun(String absolutepath) throws IOException 
+	{
+		driver.findElement(By.xpath("//span[text()='Browse']")).click();
 		Common.pause(3);
-		
+		Runtime.getRuntime().exec("F:/Temp/Nirvana/src/test/java/com/Nirvana/Utility/AutoIt Script/UploadFileLossrun.exe");
+		Common.pause(3);
 		driver.findElement(By.xpath("//span[text()='Done']")).click();
 		Common.pause(2);
-		return new ApplicationsListVerification(driver);
+		
+		return new ApplicationsListVerification(driver);	
 	}
+	
+	
+//	public ApplicationsListVerification clickOnUploadDataBtnInLossRun(String absolutepath) throws AWTException {
+//		
+//		Common.pause(2);
+//		StringSelection s = new StringSelection(absolutepath);
+//	      // Clipboard copy
+//	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
+//	      //identify element and click
+//	      driver.findElement(By.xpath("//span[text()='Browse']")).click();
+//	      // Robot object creation
+//	      Common.pause(2);
+//	      Robot r = new Robot();
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//	      //pressing ctrl+v
+//	      r.keyPress(KeyEvent.VK_CONTROL);
+//	      r.keyPress(KeyEvent.VK_V);
+//	      //releasing ctrl+v
+//	      r.keyRelease(KeyEvent.VK_CONTROL);
+//	      r.keyRelease(KeyEvent.VK_V);
+//	      //pressing enter
+//	      r.keyPress(KeyEvent.VK_ENTER);
+//	      //releasing enter
+//	      r.keyRelease(KeyEvent.VK_ENTER);
+//		Common.pause(3);
+//		
+//		driver.findElement(By.xpath("//span[text()='Done']")).click();
+//		Common.pause(2);
+//		return new ApplicationsListVerification(driver);
+//	}
 	
 	@FindBy(id="largeLossComment-input")
 	WebElement enterLargeLosses;

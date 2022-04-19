@@ -371,7 +371,12 @@ public class CustomReporter extends CustomReporterListener {
 			if (hasThrowable) {
 
 				@SuppressWarnings("deprecation")
-				String str = Utils.stackTrace(exception, true)[0];
+				
+//				String str = Utils.stackTrace(exception, true)[0];
+				
+				String str = Utils.longStackTrace(exception, true);
+
+				
 				scanner = new Scanner(str);
 				String firstLine = scanner.nextLine();
 
@@ -464,7 +469,11 @@ public class CustomReporter extends CustomReporterListener {
 	protected void generateExceptionReport(Throwable exception,
 			ITestNGMethod method) {
 		m_out.print("<div class=\"stacktrace\">");
-		m_out.print(Utils.stackTrace(exception, true)[0]);
+		
+//		m_out.print(Utils.stackTrace(exception, true)[0]);
+		
+		m_out.print(Utils.longStackTrace(exception, true));
+		
 		m_out.println("</div>");
 	}
 

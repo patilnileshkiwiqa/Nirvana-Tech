@@ -836,7 +836,10 @@ public class CustomDetailReporter extends CustomReporterListener {
 					if (hasThrowable) {
 
 						@SuppressWarnings("deprecation")
-						String str = Utils.stackTrace(exception, true)[0];
+//						String str = Utils.stackTrace(exception, true)[0];
+						
+						String str = Utils.longStackTrace(exception, true);
+
 						// scanner = new Scanner(str);
 						// String firstLine = scanner.nextLine();
 
