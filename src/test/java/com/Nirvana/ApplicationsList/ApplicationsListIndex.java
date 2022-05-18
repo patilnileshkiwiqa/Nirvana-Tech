@@ -247,7 +247,7 @@ public class ApplicationsListIndex extends SeleniumInit{
 
 		        
 				logStep(step++,"Click on the procced button ");
-				applicationsListVerification = applicationsListIndexPage.clickOnProccedBtnInEquipmentListTab();
+				applicationsListVerification = applicationsListIndexPage.clickOnProccedBtnInEquipmentListTab2();
 
 				File f = new File("UploadData/"+UploadedFile+"");
 				String absolute = f.getAbsolutePath();
@@ -575,7 +575,7 @@ public class ApplicationsListIndex extends SeleniumInit{
 				}
 				
 				logStep(step++,"Click on the upload button in loss runs ");
-				applicationsListVerification = applicationsListIndexPage.clickOnUploadEquipmentList();
+				applicationsListVerification = applicationsListIndexPage.clickOnUploadEquipmentListLossrun();
 				
 				File f2 = new File("UploadData/"+UploadedFileLossRun+"");
 				String absolutePathLossRun = f2.getAbsolutePath();

@@ -215,6 +215,18 @@ public class ApplicationsListIndexPage extends AbstractPage{
 		Common.clickOn(driver, clickOnUploadEquipmentList);
 		return new ApplicationsListVerification(driver);
 	}
+	
+	@FindBy(xpath="//span[text()='Upload']")
+	WebElement clickOnUploadEquipmentListLossrun;
+
+	public ApplicationsListVerification clickOnUploadEquipmentListLossrun() {
+		Common.pause(2);
+		Common.scrollUpToElement(driver, driver.findElement(By.xpath("//label[@for='lossRunFiles-input']")));
+		Common.clickableElement(clickOnUploadEquipmentListLossrun, driver);
+		Common.clickOn(driver, clickOnUploadEquipmentListLossrun);
+		return new ApplicationsListVerification(driver);
+	}
+
 
 	@FindBy(xpath="//button[contains(text(),'Proceed')]")
 	WebElement clickOnProccedBtnInEquipmentListTab;
@@ -224,12 +236,23 @@ public class ApplicationsListIndexPage extends AbstractPage{
 		Common.clickOn(driver, clickOnProccedBtnInEquipmentListTab);
 		return new ApplicationsListVerification(driver);
 	}
+	
+	@FindBy(xpath="(//span[contains(text(),'Proceed')])[2]")
+	WebElement clickOnProccedBtnInEquipmentListTab2;
+
+	public ApplicationsListVerification clickOnProccedBtnInEquipmentListTab2() {
+		Common.clickableElement(clickOnProccedBtnInEquipmentListTab2, driver);
+		Common.clickOn(driver, clickOnProccedBtnInEquipmentListTab2);
+		return new ApplicationsListVerification(driver);
+	}
+	
+	
 
 	@FindBy(xpath="//button[contains(text(),'Upload data from file')]")
 	WebElement clickOnUploadDataBtnInEquipmentListTab;
 	
 	public ApplicationsListVerification clickOnUploadDataBtnInEquipmentListTab(String absolutepath) throws IOException {
-		Common.pause(2);
+		Common.pause(3);
 		
 		driver.switchTo().frame(1);
 		driver.findElement(By.xpath("//button[contains(text(),'Upload data from file')]")).click();
@@ -702,7 +725,7 @@ public class ApplicationsListIndexPage extends AbstractPage{
 		return new ApplicationsListVerification(driver);
 	}
 	
-	@FindBy(xpath="//*[text()=' Upload']")
+	@FindBy(xpath="(//span[text()='Upload'])[1]")
 	WebElement clickOnUploadDriversList;
 
 	public ApplicationsListVerification clickOnUploadDriversList() {

@@ -379,7 +379,6 @@ public class SeleniumInit{
 				log(msg+" <Strong><font color=#008000>Pass</font></strong>");
 				break;
 			case ITestStatus.FAILED:
-				System.out.println("test_status>>>>>>>>"+test_status);
 				String screenshotName = Common.getCurrentTimeStampString();
 				log(msg+" <Strong><font color=#FF0000>Fail</font></strong> -> Please look to the screenshot :- "+ Common.makeScreenshot(driver, screenshotName));
 				//MakeScreenshots();
